@@ -1,0 +1,33 @@
+
+'use strict';
+
+var jinbiContract = function () {
+};
+
+jinbiContract.prototype = {
+    init: function () {
+    },
+    paynas: function () {
+        var value = Blockchain.transaction.value;
+        var name = Blockchain.transaction.from;
+        LocalContractStorage.set("name",name);
+        LocalContractStorage.set("value", value);
+        LocalContractStorage.set("obj", {name:name,value:value});
+    },
+    get: function () {
+        var name = LocalContractStorage.get("name");
+        console.log("name:"+name)
+        var value = LocalContractStorage.get("value");
+        console.log("value:"+value)
+        var obj = LocalContractStorage.get("obj");
+        console.log("obj:"+JSON.stringify(obj))
+    },
+
+};
+
+module.exports = jinbiContract;
+
+
+e258e17b1430bf39f85a0de9c17439ea23f1299fb883d5d2ae39fb36154d6d44
+n1nt95wBAYdipBnEuoQHbbgvV7QmKGSVZD6
+
